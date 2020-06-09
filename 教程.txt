@@ -1,0 +1,5 @@
+官网下载git太慢，访问淘宝镜像下载
+https://npm.taobao.org/mirrors/git-for-windows/
+
+官方指纹：https://help.github.com/cn/github/authenticating-to-github/githubs-ssh-key-fingerprints
+SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8 (RSA)
