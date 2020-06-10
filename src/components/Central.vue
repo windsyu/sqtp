@@ -20,7 +20,7 @@
                 dark
                 flat
               >
-                <v-toolbar-title>我想成为一名</v-toolbar-title>
+                <v-toolbar-title>我想成为</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-tooltip bottom>
                   <template v-slot:activator="{ on }">
@@ -39,18 +39,16 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field
-                    id="password"
-                    label="什么样的人"
-                    name="password"
-                    prepend-icon="mdi-lock"
+                  <v-text-field v-model="query"
+                    label="一个什么样的人"
+                    
                     type="text"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary">查询</v-btn>
+                <v-btn color="primary" router :to="'/query/'+query">查询</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -65,5 +63,10 @@
     props: {
       source: String,
     },
+    data(){
+      return{
+        query:''
+      }
+    }
   }
 </script>
