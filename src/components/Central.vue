@@ -44,7 +44,7 @@
                     label="什么样的人"
                     name="password"
                     prepend-icon="mdi-lock"
-                    type="password"
+                    type="text"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
