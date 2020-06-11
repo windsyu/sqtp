@@ -48,7 +48,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" router :to="'/query/'+query">查询</v-btn>
+                <v-btn color="primary" @click="clickHandler" >查询</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import Bmob from "hydrogen-js-sdk";
   export default {
     props: {
       source: String,
@@ -66,6 +67,25 @@
     data(){
       return{
         query:''
+      }
+    },
+    methods:{
+      clickHandler(){
+        console.log('clk');//测试语句
+        if(this.query==''){
+          console.log('null');
+        }
+        else{
+          const query = Bmob.Query('Article');
+          query.equalTo("name","==",this.query);
+            query.find().then(res => {
+                this.$store.commit("setName",res[0].text);
+            }).catch(err => {
+                console.log(err)
+            });
+            console.log(query)
+          this.$router.push("/query/"+this.query);
+        }
       }
     }
   }
