@@ -60,24 +60,32 @@
 
 <script>
 import Bmob from "hydrogen-js-sdk";
+var vquery =new Vue({
+el:'#inspire',
+data:{
+  
+}
+});
   export default {
     props: {
       source: String,
     },
     data(){
       return{
-        query:''
+        query:'',
+        table:''
       }
     },
     methods:{
       clickHandler(){
         console.log('clk');//测试语句
-        if(this.query==''){
+        console.log(table);
+        if(this.table==''){
           console.log('null');
         }
         else{
           const query = Bmob.Query('Article');
-          query.equalTo("name","==",this.query);
+          query.equalTo("name","!=",this.table);
             query.find().then(res => {
                 this.$store.commit("setName",res[0].text);
             }).catch(err => {

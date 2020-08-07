@@ -10,9 +10,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "hydrogen-js-sdk": "^2.2.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vuetify": "^2.2.33"
+    "vuetify": "^2.2.33",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

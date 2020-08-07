@@ -5,11 +5,12 @@ import Vuex from 'vuex'
 import vuetify from '@/plugins/vuetify'
 import App from './App'
 import router from './router'
-import Bmob from 'hydrogen-js-sdk'
+import Bmob, { Query } from 'hydrogen-js-sdk'
 
 Vue.use(vuetify);
 Vue.use(Vuex);
 Vue.config.productionTip = false;
+Vue.prototype.Bmob = Bmob
 Bmob.initialize('de2125da0bd849ac','123456')
 
 const store = new Vuex.Store({
@@ -37,3 +38,5 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+
