@@ -85,7 +85,7 @@ data:{
         }
         else{
           const query = Bmob.Query('Article');
-          query.equalTo("name","!=",this.table);
+          query.equalTo("name","==",this.table);
             query.find().then(res => {
                 this.$store.commit("setName",res[0].text);
             }).catch(err => {
