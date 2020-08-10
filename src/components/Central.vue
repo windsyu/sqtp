@@ -69,13 +69,11 @@ var id;
 var salary;
 var skill;
 var summary;
-var obj1={};
   export default {
     props: {
       source: String,
     },
     data(){
-      intro:''
       return{
         query:'',
       }
@@ -90,23 +88,29 @@ var obj1={};
         else{
           const query = Bmob.Query('Article');
           query.equalTo("name","==",this.query);
-         query.find().then(res => {
+         /*res参数作为一个对象，需要的信息都存储在res[0]对象之中，因为js字符串引用复制，所以作用域只在then（）函数内部*/ 
+          query.find().then(res => {
             this.$store.commit("setName",res[0].text);
-            intro=JSON.stringify(res[0]);
-            duty=res[0].duty
-            updatedate=res[0].updatedAt
-            name=this.query
-            id=res[0].objectId
-            salary=res[0].salary
-            skill=res[0].skill
-            summary=res[0].summary
-            var jsonObj = JSON.stringify(res[0]);
-            document.write(jsonObj)
-              console.log(res[0].name)  
+            const intro=res[0].introduction;
+            duty=res[0].duty;
+            updatedate=res[0].updatedAt;
+            name=this.query;
+            id=res[0].objectId;
+            salary=res[0].salary;
+            skill=res[0].skill;
+            summary=res[0].summary;
+            //jsonObj = JSON.stringify(res[0]);
+            document.write(intro);
+            document.write(res[0]);
+              console.log(res[0])  ;
+              console.log(typeof(res[0].summary));
+              
+              return JSON.stringify(res[0]);
             }).catch(err => {
                 console.log(err)
             });
             console.log(query);
+            
             //document.write(duty)
             
 
