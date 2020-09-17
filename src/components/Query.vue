@@ -16,7 +16,7 @@
                 <v-card-text>
                 {{this.$store.state.name}}
                 <div class="orange--text">
-                <v-icon left class="orange--text">mdi-heart</v-icon>Welcome to ZJU!
+                <v-icon left class="orange--text">mdi-heart</v-icon>{{introduction}}
                 </div>
             </v-card-text>
             </v-card>
@@ -28,6 +28,8 @@
 </template>
 <script>
 import Vuetify from 'vuetify'
+
 export default {
+  
 }
 </script>

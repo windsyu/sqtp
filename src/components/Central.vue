@@ -49,6 +49,9 @@
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="primary" @click="clickHandler" >查询</v-btn>
+                <v-text-field v-module="answer"
+                tyep="text"
+                > </v-text-field>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -74,22 +77,23 @@ var summary;
       source: String,
     },
     data(){
+      /*返回一个query是一个BombPromise对象的指针*/ 
       return{
-        query:'',
+        answer:'',
       }
     },
     methods:{
-      clickHandler(){
+       clickHandler  (){
         console.log('clk');//测试语句
         console.log(this.query);
         if(this.query==''){
           console.log('null');
         }
         else{
-          const query = Bmob.Query('Article');
-          query.equalTo("name","==",this.query);
-         /*res参数作为一个对象，需要的信息都存储在res[0]对象之中，因为js字符串引用复制，所以作用域只在then（）函数内部*/ 
-          query.find().then(res => {
+          const quest = Bmob.Query('Article');
+          quest.equalTo("name","==",this.query);
+         /*res参数作为一个对象，需要的信息都存储在res[0]对象之中，作用域只在then（）函数内部*/ 
+         quest.find().then(res => {
             this.$store.commit("setName",res[0].text);
             const intro=res[0].introduction;
             duty=res[0].duty;
@@ -100,17 +104,16 @@ var summary;
             skill=res[0].skill;
             summary=res[0].summary;
             //jsonObj = JSON.stringify(res[0]);
-            document.write(intro);
-            document.write(res[0]);
               console.log(res[0])  ;
-              console.log(typeof(res[0].summary));
-              
-              return JSON.stringify(res[0]);
+              console.log("type of "+typeof(res[0].introduction));
+               document.write(JSON.stringify(res[0]));
             }).catch(err => {
                 console.log(err)
+                alert("暂无资料")
             });
-            console.log(query);
-            
+            // document.wirte(res[0]);
+            // console.log(res[0]);
+            console.log("type is "+typeof(quest));
             //document.write(duty)
             
 
