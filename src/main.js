@@ -7,25 +7,30 @@ import App from './App'
 import router from './router'
 import Bmob, { Query } from 'hydrogen-js-sdk'
 
-Vue.use(vuetify);
-Vue.use(Vuex);
-Vue.config.productionTip = false;
+Vue.use(vuetify)
+Vue.use(Vuex)
+Vue.config.productionTip = false
 Vue.prototype.Bmob = Bmob
-Bmob.initialize('de2125da0bd849ac','123456')
+Bmob.initialize('de2125da0bd849ac', '123456')
+import createPersistedState from 'vuex-persistedstate'
 
 const store = new Vuex.Store({
+  plugins: [createPersistedState({ storage: window.localStorage })],
   state: {
-    name:'',
-    text:''
+    name: '',
+    text: '',
+    searchDataList: []
   },
   mutations: {
-    setName(state,val){
-      state.name=val;
-      
+    setName(state, val) {
+      state.name = val
     },
-    setText(state,val){
-      state.text=val;
+    setText(state, val) {
+      state.text = val
       console.log(text)
+    },
+    setSearchData(state, result) {
+      state.searchDataList = result
     }
   }
 })
@@ -35,8 +40,6 @@ new Vue({
   router,
   vuetify,
   store,
-  components: { App },
+  components: { App},
   template: '<App/>'
 })
-
-

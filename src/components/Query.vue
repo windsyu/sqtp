@@ -1,35 +1,34 @@
-<template>  
+<template>
+  <div class="search">
     <v-app>
-    <v-content>
-      <v-container  
-      >
-        <v-row
-          align="center"
-          justify="center"
-        >
-          <v-col
-            cols="12"
-            sm="8"
-            md="4"
-          >
-            <v-card class="elevation-12">
+      <v-content>
+        <v-container>
+          <v-row align="center" justify="center">
+            <v-col cols="12" sm="8" md="4">
+              <v-card class="elevation-12">
                 <v-card-text>
-                {{this.$store.state.name}}
-                <div class="orange--text">
-                <v-icon left class="orange--text">mdi-heart</v-icon>{{introduction}}
-                </div>
-            </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-content>
-  </v-app>
+                  {{this.$store.state.name}}
+                  <div class="orange--text">
+                    <v-icon left class="orange--text">mdi-heart</v-icon>{{introduction}}
+                  </div>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-content>
+    </v-app>
+  </div>
 </template>
 <script>
 import Vuetify from 'vuetify'
 
 export default {
-  
+
 }
 </script>
+<style scoped>
+.search {
+  background: skyblue;
+}
+</style>
