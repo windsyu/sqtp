@@ -49,6 +49,7 @@ import Bmob from "hydrogen-js-sdk";
 // var salary;
 // var skill;
 // var summary;
+//update
 export default {
   // props: {
   //   source: String,
